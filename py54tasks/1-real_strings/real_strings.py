@@ -19,8 +19,6 @@ class StrLen(str):
     
     def __ne__(self, value: object) -> bool:
         return not self.__eq__(value)
-        # self._check_type(value)
-        # return len(self.string) != len(self._choose_value_type(value))
     
     def __gt__(self, value: object) -> bool:
         self._check_type(value)
