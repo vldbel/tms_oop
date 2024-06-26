@@ -42,7 +42,7 @@ def test():
     
     try:
         movie5 = Movie("Fight Club")
-    except:
+    except ValueError:
         ... # duplicate
     else:
         raise AssertionError("duplicate created")
@@ -61,8 +61,8 @@ def test():
     silverscr_cinema.add_movie(movie4)
     
     # Remove posters
-    silverscr_cinema.remove_movie(movie4)
-    zamok_cinema.remove_movie(movie1)
+    silverscr_cinema.remove_movie(movie4.title)
+    zamok_cinema.remove_movie(movie1.title)
     
     # prints
     # print(MovieRegistry._titles)
