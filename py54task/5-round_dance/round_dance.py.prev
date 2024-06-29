@@ -1,0 +1,85 @@
+"""Circular Singly linked list (forward connection)"""
+
+class Child:
+    def __init__(self, name):
+        self.next = None
+        self.name = name
+        
+    def __str__(self):
+        return self.name
+        
+        
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        
+    def prepend(self, name):
+        new_node = Child(name)
+        new_node.next = self.head
+        self.head = new_node    
+        
+    def append(self, name):
+        new_node = Child(name)
+        if not self.head:
+            self.head = new_node
+            self.tail = new_node
+            return
+        self.tail.next = new_node
+        self.tail = new_node
+
+        # current_node = self.head
+        # while current_node.next:
+        #     current_node = current_node.next
+        # current_node.next = new_node
+                    
+    def print_list(self):
+        current_node = self.head
+        while current_node:
+            print(current_node, end=" -> " if current_node.next else '\n')
+            current_node = current_node.next            
+
+
+def test():
+    linked_lst = LinkedList()
+    linked_lst.append("Sasha")
+    linked_lst.append("Angelina")
+    linked_lst.append("Jadviga")
+    linked_lst.append("Maksim")
+    linked_lst.append("Vova")
+    linked_lst.prepend("Petr")
+    linked_lst.print_list()
+    
+def time_measurements():
+    from time import time
+    from random import choices, randint
+    from string import ascii_lowercase
+
+    # Time append
+    iter_count = 100000
+    
+    linked_lst = LinkedList()
+    start_time = time()
+    for _ in range(iter_count):
+        linked_lst.append("".join(choices(ascii_lowercase, k=randint(3,10))).capitalize())
+    end_time = time()
+    print(f"append: {end_time - start_time}")
+    # linked_lst.print_list()
+    print()
+        
+    # Time prepend
+    linked_lst = LinkedList()
+    start_time = time()
+    for _ in range(iter_count):
+        linked_lst.prepend("".join(choices(ascii_lowercase, k=randint(3,10))).capitalize())
+    end_time = time()
+    print(f"prepend: {end_time - start_time}")
+    # linked_lst.print_list()
+    print()
+    
+
+if __name__ == "__main__":
+    test()
+    time_measurements()
+    
+# https://www.youtube.com/watch?v=Exol2HWE97k - great video about about the topic 
