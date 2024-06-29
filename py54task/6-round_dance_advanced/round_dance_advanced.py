@@ -14,15 +14,18 @@ class CircularDLinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
+
+    def take_my_hand(self, child: Child):
+        self.head.prev = child
+        child.next = self.head
+        self.head = child
+        self.head.prev = self.tail
+        self.tail.next = self.head
     
     def prepend(self, name):
         new_node = Child(name)
-        self.head.prev = new_node
-        new_node.next = self.head
-        self.head = new_node
-        self.head.prev = self.tail
-        self.tail.next = self.head
-
+        self.take_my_hand(new_node)
+        
     def append(self, name):
         new_node = Child(name)
         if not self.head:
@@ -33,7 +36,7 @@ class CircularDLinkedList:
         new_node.prev = self.tail
         self.tail.next = new_node
         self.tail = new_node
-        new_node.next = self.head
+        new_node.next = self.head        
         
     def remove(self, name):
         ...
@@ -51,21 +54,25 @@ class CircularDLinkedList:
                 break
 
 
+def print_ll_state(cls):
+    print(f"Head: {cls.head}")
+    print(f"Head.prev: {cls.head.prev}")
+    print(f"Head.next: {cls.head.next}")
+    print()
+    print(f"Tail: {cls.tail}")
+    print(f"Tail.prev: {cls.tail.prev}")
+    print(f"Tail.next: {cls.tail.next}")
+
+
 def test():
     circ_dlst = CircularDLinkedList()
     circ_dlst.append("Sasha")
-    # print(f"Head: {circ_dlst.head}")
-    # print(f"Tail: {circ_dlst.tail}")
-
-    circ_dlst.append("Angelina")    
-    circ_dlst.append("Jadviga")
-    # print(f"Head: {circ_dlst.head}")
-    # print(f"Head.prev: {circ_dlst.head.prev}")
-    # print(f"Head.next: {circ_dlst.head.next}")
-    # print()
-    # print(f"Tail: {circ_dlst.tail}")
-    # print(f"Tail.prev: {circ_dlst.tail.prev}")
-    # print(f"Tail.next: {circ_dlst.tail.next}")
+    circ_dlst.append("Angelina")
+    
+    child_jad = Child("Jadviga")
+    circ_dlst.take_my_hand(child_jad)    
+    # print_ll_state(circ_dlst)
+    
     circ_dlst.append("Maksim")
     circ_dlst.append("Vova")
     circ_dlst.prepend("Petr")
