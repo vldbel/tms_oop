@@ -46,14 +46,14 @@ class CircularLinkedList:
             
     
 def test():
-    Circ_lst = CircularLinkedList()
-    Circ_lst.append("Sasha")
-    Circ_lst.append("Angelina")
-    Circ_lst.append("Jadviga")
-    Circ_lst.append("Maksim")
-    Circ_lst.append("Vova")
-    Circ_lst.prepend("Petr")
-    Circ_lst.print_list()
+    circ_lst = CircularLinkedList()
+    circ_lst.append("Sasha")
+    circ_lst.append("Angelina")
+    circ_lst.append("Jadviga")
+    circ_lst.append("Maksim")
+    circ_lst.append("Vova")
+    circ_lst.prepend("Petr")
+    circ_lst.print_list()
     # print(f"Head: {Circ_lst.head}")
     # print(f"Tail: {Circ_lst.tail}")
     
@@ -61,4 +61,4 @@ def test():
 if __name__ == "__main__":
     test()
     
-# https://www.youtube.com/watch?v=Exol2HWE97k - great video about about the topic
+# https://www.youtube.com/watch?v=Exol2HWE97k - great video about the topic
