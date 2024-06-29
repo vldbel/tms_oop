@@ -28,11 +28,6 @@ class LinkedList:
         self.tail.next = new_node
         self.tail = new_node
 
-        # current_node = self.head
-        # while current_node.next:
-        #     current_node = current_node.next
-        # current_node.next = new_node
-                    
     def print_list(self):
         current_node = self.head
         while current_node:
@@ -82,4 +77,4 @@ if __name__ == "__main__":
     test()
     time_measurements()
     
-# https://www.youtube.com/watch?v=Exol2HWE97k - great video about about the topic 
+# https://www.youtube.com/watch?v=Exol2HWE97k - great video about about the topic
