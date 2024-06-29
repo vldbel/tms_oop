@@ -54,8 +54,8 @@ def test():
     circ_lst.append("Vova")
     circ_lst.prepend("Petr")
     circ_lst.print_list()
-    # print(f"Head: {Circ_lst.head}")
-    # print(f"Tail: {Circ_lst.tail}")
+    # print(f"Head: {circ_lst.head}")
+    # print(f"Tail: {circ_lst.tail}")
     
 
 if __name__ == "__main__":
