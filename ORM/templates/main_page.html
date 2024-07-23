@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cars</title>
+</head>
+<body>
+<h2>Count cars: {{ context.count_of_cars }}</h2>
+<ul>
+{% for car in context.cars %}
+<li>{{car.id}} {{car.serialno}} {{car.brand}} {{car.model}}</li>
+{% endfor %}
+</ul>
+<!--
+<form method="post">
+    <input type="text" name="brand" placeholder="Brand">
+    <input type="text" name="model" placeholder="Model">
+    <input type="text" name="sn" placeholder="SN">
+    <input type="submit" value="Add car">
+</form>
+-->
+</body>
+</html>
